@@ -18,11 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(
-        "bg-background min-h-screen font-sans antialiased", 
-        inter.variable
-        )}>
-          {children}
+      <body
+        className={cn(
+          "bg-background min-h-screen font-sans antialiased",
+          inter.variable
+        )}
+      >
+        {children}
       </body>
     </html>
   );
