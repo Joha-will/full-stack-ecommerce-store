@@ -44,6 +44,12 @@ async function getProductsData() {
 
 }
 
+
+function wait(duration: number) {
+    return new Promise(resolve => setTimeout(resolve, 
+        duration))
+}
+
 export default async function AdminDashboard() {
 
     const [salesData, userData, productData ] = await Promise.all([
@@ -63,6 +69,9 @@ export default async function AdminDashboard() {
         </div>
     )
 }
+
+
+
 
 type DashboardCardProps = {
     title: string;
