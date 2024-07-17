@@ -1,6 +1,6 @@
 import { PageHeader } from "../_components/PageHeader"
 import { Button } from "@/components/ui/button"
-import { Table } from "@/components/ui/table"
+import { Table, TableHeader, TableRow, TableHead } from "@/components/ui/table"
 
 
 export default function AdminProductsPage() {
@@ -26,8 +26,19 @@ export default function AdminProductsPage() {
 function ProductTable() {
     return (
         <Table>
+            <TableHeader>
+                <TableRow>
+                    <TableHead className="w-0">
+                        <span className="sr-only"> Available For Purchase</span>
+                    </TableHead>
+                    <TableHead>Name</TableHead>
+                    <TableHead>Price</TableHead>
+                    <TableHead>Orders</TableHead>
+                    <TableHead></TableHead>
+                </TableRow>
+            </TableHeader>
 
-            
+
         </Table>
 
     )
