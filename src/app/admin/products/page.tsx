@@ -1,7 +1,7 @@
 import { PageHeader } from "../_components/PageHeader"
 import { Button } from "@/components/ui/button"
-import { Table, TableHeader, TableRow, TableHead } from "@/components/ui/table"
-
+import { Table, TableHeader, TableRow, TableHead, TableBody } from "@/components/ui/table"
+import Link from "next/link"
 
 export default function AdminProductsPage() {
     return (
@@ -9,14 +9,11 @@ export default function AdminProductsPage() {
             <div className="flex justify-between items-center gap-4">
                 <PageHeader> Products </PageHeader>
                 <Button asChild>
-                    <link href="/admin/products/new">Add Product</link>
+                    <Link href="/admin/products/new">Add Product</Link>
                 </Button>
 
             </div>
-            <div>
-                {/* Product List */}
-                <h2>List of Products</h2>
-            </div>
+            <ProductTable />
              
 
         </>
@@ -34,11 +31,15 @@ function ProductTable() {
                     <TableHead>Name</TableHead>
                     <TableHead>Price</TableHead>
                     <TableHead>Orders</TableHead>
-                    <TableHead></TableHead>
+                    <TableHead className="w-0">
+                        <span className="sr-only"> Actions</span>
+                    </TableHead>
                 </TableRow>
             </TableHeader>
 
-
+            <TableBody>
+                
+            </TableBody>
         </Table>
 
     )

@@ -79,7 +79,7 @@ type DashboardCardProps = {
     body: string;
 }
 
-function DashboardCard({title, description, body}: DashboardCardProps) {
+function DashboardCard({ title, description, body}: DashboardCardProps) {
 
     return (
 
