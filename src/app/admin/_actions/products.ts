@@ -18,7 +18,7 @@ const addSchema = z.object({
 
 })
 
-export async function addProduct(formData: FormData) {
+export async function addProduct(prevState : unknown, formData: FormData) {
 
     const result = addSchema.safeParse(Object.fromEntries(formData.entries()));
 
@@ -41,6 +41,7 @@ export async function addProduct(formData: FormData) {
 
     await db.product.create({
         data: {
+            isAvailableForPurchase: false,
             name: data.name,
             description: data.description,
             priceInCents: data.priceInCents,
@@ -49,6 +50,6 @@ export async function addProduct(formData: FormData) {
         },
     });
 
-    redirect('admin/products')
+    redirect('/admin/products')
 
 }
