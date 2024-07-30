@@ -4,6 +4,7 @@ import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell, TableCap
 import Link from "next/link"
 import db  from "@/db/db"
 import { CheckCircle2, XCircle } from "lucide-react"
+import { formatCurrency, formatNumber } from "@/lib/formatters"
 
 export default function AdminProductsPage() {
     return (
@@ -67,14 +68,31 @@ async function ProductTable() {
                         <TableCell> 
                             {product.isAvailableForPurchase ? (
                                 <>
+                                    <span className="sr-only">Available </span>
                                     <CheckCircle2 />
                                 </>
                             ) : (
 
+                                <span className="sr-only">Unavailable </span>
                                 <XCircle />
 
                             )}
                         </TableCell>
+
+                        <TableCell>{product.name}</TableCell>
+                        <TableCell>{formatCurrency(product.priceInCents / 100)}</TableCell>
+                        <TableCell>{formatNumber(product._count.orders)}</TableCell>
+                        <TableCell> 
+                            
+                            <DropdownMenu>
+                                <DropdownMenuTrigger>
+                                    
+                                </DropdownMenuTrigger>
+
+                            </DropdownMenu>
+                            
+                            <MoreVertical /> <span className="sr-only"> Actions </span> </TableCell>
+                        
 
                     </TableRow>
                 )) }
