@@ -3,8 +3,9 @@ import { Button } from "@/components/ui/button"
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell, TableCaption } from "@/components/ui/table"
 import Link from "next/link"
 import db  from "@/db/db"
-import { CheckCircle2, XCircle } from "lucide-react"
+import { CheckCircle2, MoreVertical, XCircle } from "lucide-react"
 import { formatCurrency, formatNumber } from "@/lib/formatters"
+import { DropdownMenuContent, DropdownMenu, DropdownMenuTrigger, DropdownMenuItem } from "@/components/ui/dropdown-menu"
 
 export default function AdminProductsPage() {
     return (
@@ -72,9 +73,11 @@ async function ProductTable() {
                                     <CheckCircle2 />
                                 </>
                             ) : (
-
-                                <span className="sr-only">Unavailable </span>
-                                <XCircle />
+                                <>
+                                    <span className="sr-only">Unavailable </span>
+                                    <XCircle />
+                                
+                                </>
 
                             )}
                         </TableCell>
@@ -85,14 +88,33 @@ async function ProductTable() {
                         <TableCell> 
                             
                             <DropdownMenu>
+
                                 <DropdownMenuTrigger>
+
+                                    <MoreVertical /> 
+                                    <span className="sr-only"> Actions </span> 
                                     
                                 </DropdownMenuTrigger>
 
+                                <DropdownMenuContent>
+
+                                    <DropdownMenuItem asChild>
+
+                                        <a download href={`/admin/products/${product.id}/download`}>Download</a>
+                                      
+                                    </DropdownMenuItem>
+
+                                    <DropdownMenuItem asChild>
+
+                                        <Link download href={`/admin/products/${product.id}/edit`}>Edit</Link>
+                                      
+                                    </DropdownMenuItem>
+
+                                </DropdownMenuContent>
+
                             </DropdownMenu>
                             
-                            <MoreVertical /> <span className="sr-only"> Actions </span> </TableCell>
-                        
+                        </TableCell>
 
                     </TableRow>
                 )) }
