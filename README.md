@@ -2,10 +2,12 @@
 
 
 
- - [Prisma]([[https://developer.mozilla.org/en-US/docs/Web/HTML](https://www.prisma.io/)](https://www.prisma.io/))
-    - This was used to create the database, database schema and establish relationship between the database tables.
-
-
+ - [Prisma](https://www.prisma.io/)
+    - This was used for creating the database schema, database tables and establish relationship between the tables.
+     
+- [Tailwind CSS](https://tailwindcss.com/)
+ 
+   - This was used to improve the design of the website by adding styles, layouts,  different components and responsiveness.
 
  - [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
     - This was used for the structure of the web page and it's content.
