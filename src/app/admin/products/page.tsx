@@ -6,6 +6,8 @@ import db  from "@/db/db"
 import { CheckCircle2, MoreVertical, XCircle } from "lucide-react"
 import { formatCurrency, formatNumber } from "@/lib/formatters"
 import { DropdownMenuContent, DropdownMenu, DropdownMenuTrigger, DropdownMenuItem } from "@/components/ui/dropdown-menu"
+import { ActiveToggleDropdownItem, DeleteDropdownItem } from "./_components/productActions"
+import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu"
 
 export default function AdminProductsPage() {
     return (
@@ -109,6 +111,12 @@ async function ProductTable() {
                                         <Link download href={`/admin/products/${product.id}/edit`}>Edit</Link>
                                       
                                     </DropdownMenuItem>
+
+                                    <ActiveToggleDropdownItem id={product.id} isAvailableForPurchase={product.isAvailableForPurchase} />
+
+                                    <DropdownMenuSeparator />
+
+                                    <DeleteDropdownItem id={product.id} disabled={product._count.orders > 0} />
 
                                 </DropdownMenuContent>
 
