@@ -5,9 +5,8 @@ import Link from "next/link"
 import db  from "@/db/db"
 import { CheckCircle2, MoreVertical, XCircle } from "lucide-react"
 import { formatCurrency, formatNumber } from "@/lib/formatters"
-import { DropdownMenuContent, DropdownMenu, DropdownMenuTrigger, DropdownMenuItem } from "@/components/ui/dropdown-menu"
+import { DropdownMenuContent, DropdownMenu, DropdownMenuTrigger, DropdownMenuItem, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
 import { ActiveToggleDropdownItem, DeleteDropdownItem } from "./_components/productActions"
-import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu"
 
 export default function AdminProductsPage() {
     return (
@@ -77,7 +76,7 @@ async function ProductTable() {
                             ) : (
                                 <>
                                     <span className="sr-only">Unavailable </span>
-                                    <XCircle />
+                                    <XCircle className="stroke-destructive" />
                                 
                                 </>
 
