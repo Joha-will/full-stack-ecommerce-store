@@ -16,11 +16,8 @@ export default function AdminProductsPage() {
                 <Button asChild>
                     <Link href="/admin/products/new">Add Product</Link>
                 </Button>
-
             </div>
             <ProductTable />
-             
-
         </>
     )
 }
